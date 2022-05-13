@@ -1,0 +1,24 @@
+<!-- Formulário -->
+<form>
+    <input type="text" name="nomeAluno" placeholder="Aluno" [(ngModel)]="aluno.nomeAluno">
+    <input type="number" name="nota1" placeholder="Primeira nota" [(ngModel)]="aluno.nota1">
+    <input type="number" name="nota2" placeholder="Segunda nota" [(ngModel)]="aluno.nota2">
+    <input type="button" value="Cadastrar" id="button" (click)="cadastrar()">
+</form>
+
+<!-- Tabela resultado -->
+<table>
+    <tr>
+        <td>Aluno</td>
+        <td>1ª nota</td>
+        <td>2ª nota</td>
+        <td>Média</td>
+        <td>Ações</td>
+    </tr>
+    <tr *ngFor="let aluno of vetorAlunos">
+        <td>{{aluno.nomeAluno}}</td>
+        <td>{{aluno.nota1}}</td>
+        <td>{{aluno.nota2}}</td>
+        <td>{{aluno.media}}</td> 
+    </tr>
+</table>
