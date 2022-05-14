@@ -19,6 +19,7 @@ export class AlunosComponent implements OnInit {
   constructor(private servico:AlunoService) { }
 
   ngOnInit() {
+    this.id = -1;
     this.aluno = new Aluno(); 
     this.vetorAlunos = this.servico.listar();
   }
@@ -30,6 +31,7 @@ export class AlunosComponent implements OnInit {
     // this.servico.cadastrar(this.aluno);
     // this.aluno = new Aluno(this.aluno.nomeAluno, this.aluno.nota1, this.aluno.nota2);
   }
+
   editar(id:number) {
     this.id = id;
 
@@ -40,4 +42,13 @@ export class AlunosComponent implements OnInit {
     )
   }
 
+  atualizar() {
+    this.servico.alterar(this.id,this.aluno);
+    this.aluno = new Aluno();
+    this.id = -1;
+  }
+  excluir(id:number) {
+    this.servico.excluir(id);
+    this.id = -1;
+  }
 }

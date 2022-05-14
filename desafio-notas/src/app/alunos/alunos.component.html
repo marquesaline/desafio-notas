@@ -3,22 +3,27 @@
     <input type="text" name="nomeAluno" placeholder="Aluno" [(ngModel)]="aluno.nomeAluno">
     <input type="number" name="nota1" placeholder="Primeira nota" [(ngModel)]="aluno.nota1">
     <input type="number" name="nota2" placeholder="Segunda nota" [(ngModel)]="aluno.nota2">
-    <input type="button" value="Cadastrar" id="button" (click)="cadastrar()" id="btnCadastrar">
+    <input type="button" value="Cadastrar" id="button" (click)="cadastrar()" id="btnCadastrar" *ngIf="id<0" (click)="atualizar()">
+    <input type="button" value="Editar" *ngIf="id>=0" class="btnEditar">
 </form>
 
 <!-- Tabela resultado -->
 <table>
-    <tr>
+    <tr class="tableTitle">
         <td>Aluno</td>
         <td>1ª nota</td>
         <td>2ª nota</td>
         <td>Média</td>
         <td>Ações</td>
     </tr>
-    <tr *ngFor="let aluno of vetorAlunos">
+    <tr *ngFor="let aluno of vetorAlunos; let id=index">
         <td>{{aluno.nomeAluno}}</td>
         <td>{{aluno.nota1}}</td>
         <td>{{aluno.nota2}}</td>
         <td>{{aluno.media}}</td> 
+        <td>
+            <button (click)="editar(id)" class="btnEditar">Editar</button>
+            <button (click)="excluir(id)" id="btnExcluir">Excluir</button> 
+        </td>
     </tr>
 </table>

@@ -27,7 +27,23 @@ input[type="number"] {
     width: 150px;
 
 }
-
+.btnEditar {
+    border: solid 1px rgb(254, 172, 65);
+    border-radius: 5px;
+    padding: 5px 1px;
+    background-color: rgb(254, 172, 65);
+    color: #FFF;
+    width: 100px;
+}
+#btnExcluir {
+    border: solid 1px rgb(255, 63, 63);
+    border-radius: 5px;
+    padding: 5px 1px;
+    background-color: rgb(255, 63, 63);
+    color: #FFF;
+    width: 100px;
+    margin-left: 1rem;
+}
 table {
     width: 800px;
     margin: 30px auto;
@@ -35,4 +51,8 @@ table {
     background-color: #E8E8E8;
     border-radius: 5px;
     padding: 5px;
+    text-align: center;
+}
+.tableTitle {
+    text-align: center;
 }
